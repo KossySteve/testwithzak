@@ -1,31 +1,35 @@
 module Checks
-
   def check_tags(file)
     error_statement = ""
-    line_array = file.read().split(/\n/)
-    line_array.each_with_index do |element, index|
+
+    file.each_with_index do |element, index|
       arr = element.scan(/<|>/)
       error_statement << "fix tags at line #{index + 1} " unless arr.length%2 == 0
     end
+
     return error_statement
   end
+
   def check_apostrophe(file)
     error_statement = ""
-    line_array = file.read().split(/\n/)
-    line_array.each_with_index do |element, index|
+
+    file.each_with_index do |element, index|
       arr = element.scan(/"|"/)
       error_statement << "fix apostrophe \"\" at line #{index + 1} \n " unless arr.length%2 == 0
     end
-    return error_statement
 
+    return error_statement
   end
+
   def check_doctype
       print "add Doctype" unless file.read().include? "<!DOCTYPE html>"
 
   end
+
   def check_lang
       print "add your language tag" unless file.read().match(/<html lang=\"en\">/)
   end
+
   def check_alt
     line_array = file.read().split(/\n/)
     line_array.each_with_index do |element, index|
