@@ -1,5 +1,5 @@
 require './lib/error_checks.rb'
-#require './lib/main.rb'
+# require './lib/main.rb'
 class Linter
   include Checks
 
@@ -22,4 +22,4 @@ class Linter
   end
 end
 
-Linter.new("index.html").run_all_checks
+Linter.new('index.html').run_all_checks
