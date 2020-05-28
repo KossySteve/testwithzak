@@ -1,6 +1,8 @@
 require_relative '../lib/error_checks'
 
 RSpec.describe Checks do
+  include Checks
+
   describe "#check_tags(file)" do
     it "returns string " do
       expect(check_tags(["<titlemint.com/sign_up</title>"])).to eql("fix tags at line #{0 + 1} ")
